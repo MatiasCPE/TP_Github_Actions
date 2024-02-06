@@ -1,0 +1,10 @@
+/Users/matias/Documents/DevOps/tp-github-actions/TP_Github_Actions/simple-api-student-main/src/main/java/fr/takima/training/simpleapi/entity/Department.java
+/Users/matias/Documents/DevOps/tp-github-actions/TP_Github_Actions/simple-api-student-main/src/main/java/fr/takima/training/simpleapi/service/DepartmentService.java
+/Users/matias/Documents/DevOps/tp-github-actions/TP_Github_Actions/simple-api-student-main/src/main/java/fr/takima/training/simpleapi/controller/StudentController.java
+/Users/matias/Documents/DevOps/tp-github-actions/TP_Github_Actions/simple-api-student-main/src/main/java/fr/takima/training/simpleapi/controller/DepartmentController.java
+/Users/matias/Documents/DevOps/tp-github-actions/TP_Github_Actions/simple-api-student-main/src/main/java/fr/takima/training/simpleapi/entity/Student.java
+/Users/matias/Documents/DevOps/tp-github-actions/TP_Github_Actions/simple-api-student-main/src/main/java/fr/takima/training/simpleapi/service/StudentService.java
+/Users/matias/Documents/DevOps/tp-github-actions/TP_Github_Actions/simple-api-student-main/src/main/java/fr/takima/training/simpleapi/dao/DepartmentDAO.java
+/Users/matias/Documents/DevOps/tp-github-actions/TP_Github_Actions/simple-api-student-main/src/main/java/fr/takima/training/simpleapi/controller/GreetingController.java
+/Users/matias/Documents/DevOps/tp-github-actions/TP_Github_Actions/simple-api-student-main/src/main/java/fr/takima/training/simpleapi/SimpleApiApplication.java
+/Users/matias/Documents/DevOps/tp-github-actions/TP_Github_Actions/simple-api-student-main/src/main/java/fr/takima/training/simpleapi/dao/StudentDAO.java
