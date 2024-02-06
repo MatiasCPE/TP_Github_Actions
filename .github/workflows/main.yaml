@@ -46,6 +46,6 @@ jobs:
       - name: Build and push backend image
         uses: docker/build-push-action@v3
         with:
-          context: ./simple-api  # Chemin vers le dossier contenant le Dockerfile du backend
+          context: ./simple-api-student-main  # Chemin vers le dossier contenant le Dockerfile du backend
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-simple-api:latest
           push: ${{ github.ref == 'refs/heads/main' }}  # Pousse l'image seulement si le commit est sur la branche main
