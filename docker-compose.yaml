@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+  database:
+    image: postgres:14.1-alpine
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: usr
+      POSTGRES_PASSWORD: pwd
+    volumes:
+      - ./postgres/CreateScheme.sql:/docker-entrypoint-initdb.d/CreateScheme.sql
+      - ./postgres/InsertData.sql:/docker-entrypoint-initdb.d/InsertData.sql
+    networks:
+      - my-network
+
+  backend:
+    build: ./simple-api-student-main
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: usr
+      POSTGRES_PASSWORD: pwd
+      POSTGRES_HOST: database
+    depends_on:
+      - database
+    networks:
+      - my-network
+
+  httpd:
+    build: ./html
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - my-network
+
+networks:
+  my-network:
