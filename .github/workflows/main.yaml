@@ -63,7 +63,12 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' }}  # Pousse l'image seulement si le commit est sur la branche main
       - name: SonarCloud Analysis
         uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Fourni automatiquement par GitHub Actions
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Votre token SonarCloud stocké dans les secrets de GitHub
         with:
-          projectKey: matiascpe
-          organization: MatiasCPE_TP_Github_Actions
-          sonarToken: ${{ secrets.SONAR_TOKEN }}    
+          args: >
+            -Dsonar.projectKey=matiascpe_TP_Github_Actions
+            -Dsonar.organization=MatiasCPE
+            -Dsonar.sources=./simple-api-student-main/pom.xml
+            -Dsonar.host.url=https://sonarcloud.io    
