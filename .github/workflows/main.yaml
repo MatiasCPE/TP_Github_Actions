@@ -24,4 +24,5 @@ jobs:
           distribution: 'adopt'
 
       - name: Build and test with Maven
+        working-directory: ./TP_Github_Actions/simple-api-student-main 
         run: mvn clean verify
