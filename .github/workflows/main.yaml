@@ -68,7 +68,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Votre token SonarCloud stocké dans les secrets de GitHub
         with:
           args: >
-            -Dsonar.projectKey=matiascpe_TP_Github_Actions
+            -Dsonar.projectKey=MatiasCPE_TP_Github_Actions
             -Dsonar.organization=MatiasCPE
             -Dsonar.sources=./simple-api-student-main/pom.xml
             -Dsonar.host.url=https://sonarcloud.io    
