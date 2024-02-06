@@ -64,6 +64,6 @@ jobs:
       - name: SonarCloud Analysis
         uses: sonarsource/sonarcloud-github-action@master
         with:
-        projectKey: matiascpe
-        organization: MatiasCPE_TP_Github_Actions
-        sonarToken: ${{ secrets.SONAR_TOKEN }}    
+          projectKey: matiascpe
+          organization: MatiasCPE_TP_Github_Actions
+          sonarToken: ${{ secrets.SONAR_TOKEN }}    
