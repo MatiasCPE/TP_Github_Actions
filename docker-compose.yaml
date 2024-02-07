@@ -2,14 +2,11 @@ version: '3.7'
 
 services:
   database:
-    image: postgres:14.1-alpine
+    buid: ./postgres
     environment:
       POSTGRES_DB: db
       POSTGRES_USER: usr
       POSTGRES_PASSWORD: pwd
-    volumes:
-      - ./postgres/CreateScheme.sql:/docker-entrypoint-initdb.d/CreateScheme.sql
-      - ./postgres/InsertData.sql:/docker-entrypoint-initdb.d/InsertData.sql
     networks:
       - my-network
 
