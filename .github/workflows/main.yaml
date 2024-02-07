@@ -61,4 +61,10 @@ jobs:
         with:
           context: ./html  # Chemin vers le dossier contenant le Dockerfile du backend
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-httpd:latest
-          push: ${{ github.ref == 'refs/heads/main' }}  # Pousse l'image seulement si le commit est sur la branche main  
+          push: ${{ github.ref == 'refs/heads/main' }}  # Pousse l'image seulement si le commit est sur la branche main
+      - name: Build and push frontend image
+        uses: docker/build-push-action@v3
+        with:
+          context: ./devops-front-main  # Chemin vers le dossier contenant le Dockerfile du backend
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tp-devops-frontend:latest
+          push: ${{ github.ref == 'refs/heads/main' }}  # Pousse l'image seulement si le commit est sur la branche main   
