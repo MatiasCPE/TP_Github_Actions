@@ -6,8 +6,11 @@ docker build -t mon-backend-api .
 docker run --name mon-backend-api-instance --network mon-reseau -d mon-backend-api
 
 mon-postgres-instance
-usr
-pwd
+
+POSTGRES_DB: db
+POSTGRES_USER: usr
+POSTGRES_PASSWORD: pwd
+POSTGRES_HOST: database
 
 matiascpe
 MatiasCPE_TP_Github_Actions

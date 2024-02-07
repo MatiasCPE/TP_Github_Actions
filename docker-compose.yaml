@@ -31,5 +31,14 @@ services:
     networks:
       - my-network
 
+  frontend:
+    build: ./devops-front-main
+    ports:
+      - "9090:80"
+    depends_on:
+      - backend
+    networks:
+      - my-network
+
 networks:
   my-network:
