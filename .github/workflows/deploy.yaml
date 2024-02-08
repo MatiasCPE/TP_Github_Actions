@@ -1,0 +1,69 @@
+name: CI devops build and push Docker image
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: "Log level"
+        required: true
+        default: "warning"
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      tags:
+        description: "Test scenario tags"
+        required: false
+        type: boolean
+      environment:
+        description: "Environment to run tests against"
+        type: environment
+        required: true
+
+  workflow_run:
+    workflows: ["CI devops test backend"]
+    branches: [main]
+    types:
+      - completed
+jobs:
+  build-and-push-docker-image:
+    name: "Build and push Docker image"
+    runs-on: ubuntu-22.04
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.5.0
+      - name: Login to DockerHub
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build image and push backend
+        uses: docker/build-push-action@v3
+        with:
+          context: ./simple-api-student-main
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-backend:latest
+          push: true
+      - name: Build image and push database
+        uses: docker/build-push-action@v3
+        with:
+          context: ./postgres
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-database:latest
+          push: true
+      - name: Build image and push httpd
+        uses: docker/build-push-action@v3
+        with:
+          context: ./html
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-httpd:latest
+          push: true
+      - name: Build image and push frontend
+        uses: docker/build-push-action@v3
+        with:
+          context: ./frontend
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-frontend:latest
+          push: true
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: playbook.yml
+          directory: ./ansible
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          options: |
+            --inventory inventories/setup.yml

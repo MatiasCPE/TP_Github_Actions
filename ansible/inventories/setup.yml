@@ -1,0 +1,12 @@
+all:
+  vars:
+    ansible_user: centos
+    ansible_ssh_private_key_file: /Users/matias/.ssh/cle_ansible
+    postgres_user: "usr"
+    postgres_password: "pwd"
+    postgres_db: "db"
+    postgres_host: "database"
+  children:
+    prod:
+      hosts:
+        matias.chatelet-ferrety.takima.cloud

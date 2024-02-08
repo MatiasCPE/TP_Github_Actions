@@ -1,0 +1,6 @@
+---
+# tasks file for roles/create_network
+- name: Create a network for the application
+  docker_network:
+    name: my-network
+    state: present

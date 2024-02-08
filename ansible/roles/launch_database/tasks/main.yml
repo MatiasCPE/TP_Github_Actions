@@ -1,0 +1,13 @@
+---
+# tasks file for roles/launch_database
+- name: Run the database container
+  docker_container:
+    name: "{{ postgres_host }}"
+    image: mattiiaass/tp-devops-postgres:latest
+    env:
+      POSTGRES_USER: "{{ postgres_user }}"
+      POSTGRES_PASSWORD: "{{ postgres_password }}"
+      POSTGRES_DB: "{{ postgres_db }}"
+    networks:
+      - name: my-network
+    pull: true

@@ -1,0 +1,9 @@
+---
+# tasks file for roles/launch_frontend
+- name: Run the frontend container
+  docker_container:
+    name: frontend
+    image: mattiiaass/tp-devops-frontend:latest
+    networks:
+      - name: my-network
+    pull: true
