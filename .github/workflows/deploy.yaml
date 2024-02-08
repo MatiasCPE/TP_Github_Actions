@@ -56,7 +56,7 @@ jobs:
       - name: Build image and push frontend
         uses: docker/build-push-action@v3
         with:
-          context: ./frontend
+          context: ./devops-front-main
           tags: ${{secrets.DOCKERHUB_USERNAME}}/devops-frontend:latest
           push: true
       - name: Run playbook
