@@ -21,7 +21,7 @@ on:
         required: true
 
   workflow_run:
-    workflows: ["CI devops test backend"]
+    workflows: ["CI devops 2023"]
     branches: [main]
     types:
       - completed
