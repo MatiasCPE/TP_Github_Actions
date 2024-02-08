@@ -66,4 +66,5 @@ jobs:
           directory: ./ansible
           key: ${{secrets.SSH_PRIVATE_KEY}}
           options: |
+            -u centos
             --inventory inventories/setup.yml
